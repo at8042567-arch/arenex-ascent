@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import arenexLogo from "@/assets/arenex-logo.png";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Tools", href: "/tools" },
+  { label: "Store", href: "/store" },
+  { label: "Pricing", href: "/pricing" },
+];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,10 +25,7 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setIsMobileMenuOpen(false);
-  };
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <nav
@@ -26,28 +34,31 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-primary-foreground text-lg">
-            A
-          </div>
-          <span className="font-display font-bold text-xl tracking-wider text-foreground group-hover:text-primary transition-colors">
-            ARENEX
-          </span>
-        </a>
+        <Link to="/" className="flex items-center gap-3 group">
+          <img 
+            src={arenexLogo} 
+            alt="Arenex TechWorks" 
+            className="h-10 w-auto object-contain"
+          />
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <button onClick={() => scrollTo("services")} className="text-muted-foreground hover:text-primary transition-colors font-medium">
-            Services
-          </button>
-          <button onClick={() => scrollTo("tools")} className="text-muted-foreground hover:text-primary transition-colors font-medium">
-            AI Tools
-          </button>
-          <button onClick={() => scrollTo("store")} className="text-muted-foreground hover:text-primary transition-colors font-medium">
-            Store
-          </button>
-          <Button variant="glow" size="sm" onClick={() => scrollTo("hero")}>
-            Start Project
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className={`transition-colors font-medium ${
+                isActive(link.href)
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Button variant="glow" size="sm" asChild>
+            <Link to="/pricing">Start Project</Link>
           </Button>
         </div>
 
@@ -64,17 +75,24 @@ export const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden glass-card mt-2 mx-4 p-6 rounded-2xl animate-fade-in-up">
           <div className="flex flex-col gap-4">
-            <button onClick={() => scrollTo("services")} className="text-muted-foreground hover:text-primary transition-colors font-medium text-left py-2">
-              Services
-            </button>
-            <button onClick={() => scrollTo("tools")} className="text-muted-foreground hover:text-primary transition-colors font-medium text-left py-2">
-              AI Tools
-            </button>
-            <button onClick={() => scrollTo("store")} className="text-muted-foreground hover:text-primary transition-colors font-medium text-left py-2">
-              Store
-            </button>
-            <Button variant="glow" className="mt-2">
-              Start Project
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`py-2 font-medium ${
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Button variant="glow" className="mt-2" asChild>
+              <Link to="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
+                Start Project
+              </Link>
             </Button>
           </div>
         </div>

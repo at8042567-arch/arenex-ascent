@@ -10,13 +10,13 @@ const products = [
 
 export const StoreSection = () => {
   return (
-    <section id="store" className="py-24 relative">
+    <section id="store" className="py-16 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
+          <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
             Premium <span className="text-gradient">Assets</span>
-          </h2>
+          </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             High-quality digital resources to accelerate your projects
           </p>
@@ -33,7 +33,7 @@ export const StoreSection = () => {
                   <Package className="w-12 h-12 text-muted-foreground/50 mx-auto mb-3" />
                   <p className="text-muted-foreground text-sm font-medium">Product Coming Soon</p>
                 </div>
-                
+
                 {/* Animated pulse effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -skew-x-12 animate-pulse" />
               </div>
