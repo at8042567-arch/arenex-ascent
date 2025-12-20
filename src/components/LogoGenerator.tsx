@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, Download, Sparkles, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
-
-const HF_API_KEY = "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";
+import { supabase } from "@/integrations/supabase/client";
 
 export const LogoGenerator = () => {
   const [companyName, setCompanyName] = useState("");
@@ -21,29 +20,28 @@ export const LogoGenerator = () => {
     setLoading(true);
     setGeneratedLogo(null);
 
-    const prompt = `Vector logo for ${companyName}, ${industry} style, minimalist, high quality, white background, 8k resolution, professional, modern, clean design`;
-
     try {
-      const response = await fetch(
-        "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${HF_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ inputs: prompt }),
-        }
-      );
+      const { data, error } = await supabase.functions.invoke('generate-logo', {
+        body: { companyName, industry }
+      });
 
-      if (!response.ok) {
-        throw new Error("Failed to generate logo");
+      if (error) {
+        console.error("Error generating logo:", error);
+        toast.error(error.message || "Failed to generate logo. Please try again.");
+        return;
       }
 
-      const blob = await response.blob();
-      const imageUrl = URL.createObjectURL(blob);
-      setGeneratedLogo(imageUrl);
-      toast.success("Logo generated successfully!");
+      if (data.error) {
+        toast.error(data.error);
+        return;
+      }
+
+      if (data.image) {
+        setGeneratedLogo(data.image);
+        toast.success("Logo generated successfully!");
+      } else {
+        toast.error("No logo was generated. Please try again.");
+      }
     } catch (error) {
       console.error("Error generating logo:", error);
       toast.error("Failed to generate logo. Please try again.");

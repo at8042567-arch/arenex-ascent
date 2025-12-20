@@ -255,7 +255,7 @@ export const InvoiceGenerator = () => {
         </Button>
         <Button variant="glow" onClick={printInvoice}>
           <Printer className="w-4 h-4 mr-2" />
-          Print Invoice
+          Print
         </Button>
       </div>
     </div>
