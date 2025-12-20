@@ -76,7 +76,7 @@ export const Footer = () => {
           <p className="text-muted-foreground text-sm">
             © 2026 Arenex TechWorks. Made in Pakistan 🇵🇰
           </p>
-          <p className="text-muted-foreground text-xs">All rights reserved.</p>
+          <p className="text-muted-foreground text-xs">www.arenextechworks.com</p>
         </div>
       </div>
     </footer>

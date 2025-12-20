@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Plus, Trash2, Printer, FileText } from "lucide-react";
+import { Plus, Trash2, Printer, Download } from "lucide-react";
 import { toast } from "sonner";
+import html2pdf from "html2pdf.js";
 
 interface InvoiceItem {
   id: string;
@@ -18,6 +19,7 @@ export const InvoiceGenerator = () => {
     { id: "1", item: "Web Development", price: 1500, qty: 1 },
     { id: "2", item: "Logo Design", price: 300, qty: 1 },
   ]);
+  const invoiceRef = useRef<HTMLDivElement>(null);
 
   const addItem = () => {
     setItems([...items, { id: Date.now().toString(), item: "New Item", price: 0, qty: 1 }]);
@@ -35,83 +37,106 @@ export const InvoiceGenerator = () => {
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
 
-  const printInvoice = () => {
-    const printContent = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>Invoice ${invoiceNumber}</title>
-        <style>
-          * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { font-family: 'Inter', Arial, sans-serif; padding: 40px; background: #fff; color: #1a1a1a; }
-          .header { display: flex; justify-content: space-between; margin-bottom: 40px; }
-          .logo { font-size: 28px; font-weight: bold; color: #00a8ff; }
-          .invoice-info { text-align: right; }
-          .invoice-info h2 { font-size: 24px; color: #00a8ff; }
-          .client { margin-bottom: 30px; }
-          .client h3 { color: #666; margin-bottom: 8px; }
-          table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-          th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-          th { background: #f5f5f5; font-weight: 600; }
-          .totals { text-align: right; }
-          .totals p { margin: 8px 0; }
-          .total { font-size: 24px; font-weight: bold; color: #00a8ff; }
-          .footer { margin-top: 60px; text-align: center; color: #888; font-size: 12px; }
-        </style>
-      </head>
-      <body>
-        <div class="header">
-          <div class="logo">ARENEX</div>
-          <div class="invoice-info">
-            <h2>INVOICE</h2>
-            <p>${invoiceNumber}</p>
-            <p>${new Date().toLocaleDateString()}</p>
-          </div>
+  const getInvoiceHTML = () => `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Invoice ${invoiceNumber}</title>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', Arial, sans-serif; padding: 40px; background: #fff; color: #1a1a1a; }
+        .header { display: flex; justify-content: space-between; margin-bottom: 40px; }
+        .logo { font-size: 28px; font-weight: bold; color: #00a8ff; }
+        .invoice-info { text-align: right; }
+        .invoice-info h2 { font-size: 24px; color: #00a8ff; }
+        .client { margin-bottom: 30px; }
+        .client h3 { color: #666; margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f5f5f5; font-weight: 600; }
+        .totals { text-align: right; }
+        .totals p { margin: 8px 0; }
+        .total { font-size: 24px; font-weight: bold; color: #00a8ff; }
+        .footer { margin-top: 60px; text-align: center; color: #888; font-size: 12px; }
+      </style>
+    </head>
+    <body>
+      <div class="header">
+        <div class="logo">ARENEX</div>
+        <div class="invoice-info">
+          <h2>INVOICE</h2>
+          <p>${invoiceNumber}</p>
+          <p>${new Date().toLocaleDateString()}</p>
         </div>
-        <div class="client">
-          <h3>Bill To:</h3>
-          <p><strong>${clientName}</strong></p>
-        </div>
-        <table>
-          <thead>
+      </div>
+      <div class="client">
+        <h3>Bill To:</h3>
+        <p><strong>${clientName}</strong></p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${items.map((item) => `
             <tr>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Amount</th>
+              <td>${item.item}</td>
+              <td>$${item.price.toFixed(2)}</td>
+              <td>${item.qty}</td>
+              <td>$${(item.price * item.qty).toFixed(2)}</td>
             </tr>
-          </thead>
-          <tbody>
-            ${items.map((item) => `
-              <tr>
-                <td>${item.item}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td>${item.qty}</td>
-                <td>$${(item.price * item.qty).toFixed(2)}</td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-        <div class="totals">
-          <p>Subtotal: $${subtotal.toFixed(2)}</p>
-          <p>Tax (10%): $${tax.toFixed(2)}</p>
-          <p class="total">Total: $${total.toFixed(2)}</p>
-        </div>
-        <div class="footer">
-          <p>Thank you for your business!</p>
-          <p>Arenex TechWorks | www.arenex.tech</p>
-        </div>
-      </body>
-      </html>
-    `;
+          `).join("")}
+        </tbody>
+      </table>
+      <div class="totals">
+        <p>Subtotal: $${subtotal.toFixed(2)}</p>
+        <p>Tax (10%): $${tax.toFixed(2)}</p>
+        <p class="total">Total: $${total.toFixed(2)}</p>
+      </div>
+      <div class="footer">
+        <p>Thank you for your business!</p>
+        <p>Arenex TechWorks | www.arenextechworks.com</p>
+      </div>
+    </body>
+    </html>
+  `;
 
+  const printInvoice = () => {
     const printWindow = window.open("", "_blank");
     if (printWindow) {
-      printWindow.document.write(printContent);
+      printWindow.document.write(getInvoiceHTML());
       printWindow.document.close();
       printWindow.print();
       toast.success("Printing invoice...");
     }
+  };
+
+  const downloadPDF = () => {
+    const element = document.createElement("div");
+    element.innerHTML = getInvoiceHTML();
+    document.body.appendChild(element);
+
+    const opt = {
+      margin: 0,
+      filename: "ArenexTechWorks-Invoice.pdf",
+      image: { type: "jpeg" as const, quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in" as const, format: "letter" as const, orientation: "portrait" as const },
+    };
+
+    html2pdf()
+      .set(opt)
+      .from(element)
+      .save()
+      .then(() => {
+        document.body.removeChild(element);
+        toast.success("PDF downloaded successfully!");
+      });
   };
 
   return (
@@ -224,6 +249,10 @@ export const InvoiceGenerator = () => {
 
       {/* Actions */}
       <div className="flex justify-end gap-4">
+        <Button variant="outline" onClick={downloadPDF}>
+          <Download className="w-4 h-4 mr-2" />
+          Download PDF
+        </Button>
         <Button variant="glow" onClick={printInvoice}>
           <Printer className="w-4 h-4 mr-2" />
           Print Invoice
