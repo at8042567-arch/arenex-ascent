@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Zap, Crown } from "lucide-react";
+import { Check, Star, Zap, Crown, Rocket, Gem, Building } from "lucide-react";
+import { GraphicDesignPricing } from "@/components/GraphicDesignPricing";
 
-const plans = [
+const webDevPlans = [
   {
     name: "Starter",
     icon: Star,
@@ -77,11 +78,14 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* Web Development Pricing */}
       <section className="py-16">
         <div className="container mx-auto px-6">
+          <h2 className="font-display font-bold text-3xl text-center mb-12">
+            Web Development <span className="text-gradient">Plans</span>
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {plans.map((plan) => (
+            {webDevPlans.map((plan) => (
               <div
                 key={plan.name}
                 className={`glass-card-hover p-8 relative ${
@@ -125,14 +129,24 @@ const Pricing = () => {
                   variant={plan.popular ? "glow" : "outline"}
                   className="w-full"
                   size="lg"
+                  asChild
                 >
-                  Get Started
+                  <a
+                    href="https://wa.me/966557677940"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Started
+                  </a>
                 </Button>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Graphic Design Pricing */}
+      <GraphicDesignPricing />
 
       {/* FAQ or CTA */}
       <section className="py-24">
@@ -145,8 +159,14 @@ const Pricing = () => {
               Have specific requirements? We can create a custom package tailored to your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="glow" size="lg">
-                Contact Us
+              <Button variant="glow" size="lg" asChild>
+                <a
+                  href="https://wa.me/966557677940"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contact Us
+                </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <Link to="/tools">Try Free Tools</Link>

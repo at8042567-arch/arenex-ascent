@@ -1,5 +1,6 @@
-import { Mail, MessageCircle, Code2, Palette, Brain, Video, Shield, User, Eye, Users } from "lucide-react";
+import { Mail, MessageCircle, Code2, Palette, Brain, Video, Shield, Eye, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import founderImage from "@/assets/founder-image.png";
 
 const teamRoles = [
   { icon: Code2, label: "Web Engineering" },
@@ -17,8 +18,12 @@ export const AboutSection = () => {
         <div className="glass-card p-8 md:p-12 rounded-2xl mb-16 max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             {/* Avatar */}
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
-              <User className="w-16 h-16 text-primary-foreground" />
+            <div className="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-primary to-secondary flex-shrink-0">
+              <img 
+                src={founderImage} 
+                alt="Abdulrehman Tariq" 
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Info */}
