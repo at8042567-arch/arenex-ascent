@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Code2, Palette, Check, ArrowRight } from "lucide-react";
+import { GraphicDesignPricing } from "@/components/GraphicDesignPricing";
+import { AboutSection } from "@/components/AboutSection";
 
 const webDevFeatures = [
   "Custom Website Development",
@@ -109,15 +111,23 @@ const Services = () => {
                   ))}
                 </ul>
                 <Button variant="glow" asChild>
-                  <Link to="/pricing">
+                  <a href="#design-pricing">
                     View Pricing <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Graphic Design Pricing */}
+      <div id="design-pricing">
+        <GraphicDesignPricing />
+      </div>
+
+      {/* About & Contact Section */}
+      <AboutSection />
 
       {/* CTA */}
       <section className="py-24">

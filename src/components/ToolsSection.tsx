@@ -1,7 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BioLinkGenerator } from "./BioLinkGenerator";
 import { InvoiceGenerator } from "./InvoiceGenerator";
-import { Link2, FileText, Sparkles } from "lucide-react";
+import { LogoGenerator } from "./LogoGenerator";
+import { Link2, FileText, Sparkles, Palette } from "lucide-react";
 
 export const ToolsSection = () => {
   return (
@@ -26,8 +27,15 @@ export const ToolsSection = () => {
 
         {/* Tools Tabs */}
         <div className="max-w-5xl mx-auto">
-          <Tabs defaultValue="biolink" className="w-full">
+          <Tabs defaultValue="logo" className="w-full">
             <TabsList className="glass-card w-full sm:w-auto h-auto p-2 gap-2 flex flex-wrap justify-center mb-8">
+              <TabsTrigger
+                value="logo"
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-6 py-3 rounded-lg font-display text-sm"
+              >
+                <Palette className="w-4 h-4 mr-2" />
+                AI Logo Generator
+              </TabsTrigger>
               <TabsTrigger
                 value="biolink"
                 className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-6 py-3 rounded-lg font-display text-sm"
@@ -43,6 +51,10 @@ export const ToolsSection = () => {
                 Invoice Generator
               </TabsTrigger>
             </TabsList>
+
+            <TabsContent value="logo" className="glass-card p-6 sm:p-8 rounded-2xl">
+              <LogoGenerator />
+            </TabsContent>
 
             <TabsContent value="biolink" className="glass-card p-6 sm:p-8 rounded-2xl">
               <BioLinkGenerator />
