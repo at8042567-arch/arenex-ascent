@@ -15,6 +15,7 @@ interface InvoiceItem {
 export const InvoiceGenerator = () => {
   const [clientName, setClientName] = useState("Client Name");
   const [invoiceNumber, setInvoiceNumber] = useState("INV-001");
+  const [taxPercent, setTaxPercent] = useState(10);
   const [items, setItems] = useState<InvoiceItem[]>([
     { id: "1", item: "Web Development", price: 1500, qty: 1 },
     { id: "2", item: "Logo Design", price: 300, qty: 1 },
@@ -34,7 +35,7 @@ export const InvoiceGenerator = () => {
   };
 
   const subtotal = items.reduce((acc, item) => acc + item.price * item.qty, 0);
-  const tax = subtotal * 0.1;
+  const tax = subtotal * (taxPercent / 100);
   const total = subtotal + tax;
 
   const getInvoiceHTML = () => `
@@ -95,7 +96,7 @@ export const InvoiceGenerator = () => {
       </table>
       <div class="totals">
         <p>Subtotal: $${subtotal.toFixed(2)}</p>
-        <p>Tax (10%): $${tax.toFixed(2)}</p>
+        <p>Tax (${taxPercent}%): $${tax.toFixed(2)}</p>
         <p class="total">Total: $${total.toFixed(2)}</p>
       </div>
       <div class="footer">
@@ -142,7 +143,7 @@ export const InvoiceGenerator = () => {
   return (
     <div className="space-y-6">
       {/* Invoice Header */}
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div>
           <label className="text-sm text-muted-foreground mb-2 block">Client Name</label>
           <Input
@@ -158,6 +159,18 @@ export const InvoiceGenerator = () => {
             value={invoiceNumber}
             onChange={(e) => setInvoiceNumber(e.target.value)}
             placeholder="INV-001"
+            className="bg-background/50 border-border/50"
+          />
+        </div>
+        <div>
+          <label className="text-sm text-muted-foreground mb-2 block">Tax (%)</label>
+          <Input
+            type="number"
+            value={taxPercent}
+            onChange={(e) => setTaxPercent(parseFloat(e.target.value) || 0)}
+            placeholder="10"
+            min="0"
+            max="100"
             className="bg-background/50 border-border/50"
           />
         </div>
@@ -237,7 +250,7 @@ export const InvoiceGenerator = () => {
             <span className="font-medium">${subtotal.toFixed(2)}</span>
           </div>
           <div className="flex justify-between w-full max-w-xs">
-            <span className="text-muted-foreground">Tax (10%):</span>
+            <span className="text-muted-foreground">Tax ({taxPercent}%):</span>
             <span className="font-medium">${tax.toFixed(2)}</span>
           </div>
           <div className="flex justify-between w-full max-w-xs pt-2 border-t border-border/50">
