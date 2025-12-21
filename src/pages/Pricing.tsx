@@ -1,64 +1,47 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Zap, Crown, Rocket, Gem, Building } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { GraphicDesignPricing } from "@/components/GraphicDesignPricing";
 
 const webDevPlans = [
   {
     name: "Starter",
-    icon: Star,
-    price: "299",
-    description: "Perfect for small businesses and startups",
+    price: "$299",
+    period: "one-time",
+    description: "Perfect for small businesses",
     features: [
       "Single Page Website",
       "Mobile Responsive Design",
       "Basic SEO Setup",
       "Contact Form Integration",
       "3 Revisions",
-      "1 Week Delivery",
-      "30 Days Support",
     ],
-    popular: false,
-    color: "primary",
   },
   {
     name: "Professional",
-    icon: Zap,
-    price: "599",
+    price: "$599",
+    period: "one-time",
     description: "Ideal for growing businesses",
     features: [
       "Up to 5 Pages Website",
       "Custom UI/UX Design",
       "Advanced SEO Optimization",
       "Social Media Integration",
-      "Logo & Branding Package",
       "Unlimited Revisions",
-      "2 Weeks Delivery",
-      "90 Days Support",
-      "Analytics Dashboard",
     ],
-    popular: true,
-    color: "secondary",
   },
   {
     name: "Enterprise",
-    icon: Crown,
-    price: "1299",
+    price: "$1299",
+    period: "one-time",
     description: "Complete solution for large businesses",
     features: [
       "Unlimited Pages",
       "Custom Web Application",
       "E-commerce Integration",
-      "Complete Brand Identity",
-      "Premium SEO & Marketing",
       "Priority Support",
-      "Custom Delivery Timeline",
       "1 Year Support",
-      "Dedicated Project Manager",
-      "Monthly Maintenance",
     ],
-    popular: false,
-    color: "accent",
   },
 ];
 
@@ -81,44 +64,41 @@ const Pricing = () => {
       {/* Web Development Pricing */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <h2 className="font-display font-bold text-3xl text-center mb-12">
-            Web Development <span className="text-gradient">Plans</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {webDevPlans.map((plan) => (
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm text-muted-foreground">Web Development</span>
+            </div>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
+              Development <span className="text-gradient">Pricing Plans</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Professional web development services tailored to your business needs
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {webDevPlans.map((plan, index) => (
               <div
-                key={plan.name}
-                className={`glass-card-hover p-8 relative ${
-                  plan.popular ? "ring-2 ring-secondary" : ""
-                }`}
+                key={index}
+                className="glass-card p-8 rounded-2xl relative transition-all duration-500 hover:border-primary/30"
               >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-secondary text-secondary-foreground text-sm font-display font-semibold">
-                    Most Popular
-                  </div>
-                )}
-
                 <div className="text-center mb-8">
-                  <div className={`w-16 h-16 rounded-2xl bg-${plan.color}/10 flex items-center justify-center mx-auto mb-4`}>
-                    <plan.icon className={`w-8 h-8 text-${plan.color}`} />
-                  </div>
-                  <h3 className="font-display font-bold text-2xl mb-2">{plan.name}</h3>
-                  <p className="text-muted-foreground text-sm">{plan.description}</p>
-                </div>
-
-                <div className="text-center mb-8">
+                  <h3 className="font-display font-bold text-xl mb-2">{plan.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-muted-foreground text-lg">$</span>
-                    <span className="font-display font-bold text-5xl text-gradient">{plan.price}</span>
+                    <span className="font-display font-bold text-4xl text-primary">
+                      {plan.price}
+                    </span>
+                    <span className="text-muted-foreground text-sm">{plan.period}</span>
                   </div>
-                  <p className="text-muted-foreground text-sm mt-2">One-time payment</p>
                 </div>
 
                 <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className={`w-5 h-5 rounded-full bg-${plan.color}/20 flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                        <Check className={`w-3 h-3 text-${plan.color}`} />
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-primary" />
                       </div>
                       <span className="text-foreground text-sm">{feature}</span>
                     </li>
@@ -126,9 +106,8 @@ const Pricing = () => {
                 </ul>
 
                 <Button
-                  variant={plan.popular ? "glow" : "outline"}
+                  variant="outline"
                   className="w-full"
-                  size="lg"
                   asChild
                 >
                   <a

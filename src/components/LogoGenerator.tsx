@@ -126,14 +126,14 @@ export const LogoGenerator = () => {
                 className="max-w-full max-h-[300px] rounded-xl shadow-2xl shadow-primary/20"
               />
             </div>
-            <div className="flex items-center justify-center gap-4">
-              <Button variant="glow" onClick={downloadLogo}>
-                <Download className="w-4 h-4 mr-2" />
-                Download Logo
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4">
+              <Button variant="glow" onClick={downloadLogo} className="w-full sm:w-auto px-4">
+                <Download className="w-4 h-4 mr-2 flex-shrink-0" />
+                <span>Download Logo</span>
               </Button>
-              <Button variant="outline" onClick={generateLogo}>
-                <RefreshCw className="w-4 h-4 mr-2" />
-                Regenerate
+              <Button variant="outline" onClick={generateLogo} className="w-full sm:w-auto px-4">
+                <RefreshCw className="w-4 h-4 mr-2 flex-shrink-0" />
+                <span>Regenerate</span>
               </Button>
             </div>
           </div>
