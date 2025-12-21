@@ -67,26 +67,8 @@ export const GraphicDesignPricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`glass-card p-8 rounded-2xl relative transition-all duration-500 ${
-                plan.highlighted
-                  ? "border-primary/50 shadow-lg shadow-primary/20 scale-105 md:scale-110"
-                  : "hover:border-primary/30"
-              }`}
-              style={
-                plan.highlighted
-                  ? {
-                      animation: "pulse-glow 3s ease-in-out infinite",
-                    }
-                  : undefined
-              }
+              className="glass-card p-8 rounded-2xl relative transition-all duration-500 hover:border-primary/30"
             >
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary px-4 py-1 rounded-full">
-                  <span className="text-xs font-display font-bold text-primary-foreground uppercase tracking-wider">
-                    Most Popular
-                  </span>
-                </div>
-              )}
 
               <div className="text-center mb-8">
                 <h3 className="font-display font-bold text-xl mb-2">{plan.name}</h3>
@@ -111,7 +93,7 @@ export const GraphicDesignPricing = () => {
               </ul>
 
               <Button
-                variant={plan.highlighted ? "glow" : "outline"}
+                variant="outline"
                 className="w-full"
                 asChild
               >

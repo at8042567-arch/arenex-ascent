@@ -248,14 +248,14 @@ export const InvoiceGenerator = () => {
       </div>
 
       {/* Actions */}
-      <div className="flex justify-end gap-4">
-        <Button variant="outline" onClick={downloadPDF}>
-          <Download className="w-4 h-4 mr-2" />
-          Download PDF
+      <div className="flex flex-col sm:flex-row justify-end gap-3">
+        <Button variant="outline" onClick={downloadPDF} className="w-full sm:w-auto px-4">
+          <Download className="w-4 h-4 mr-2 flex-shrink-0" />
+          <span>Download PDF</span>
         </Button>
-        <Button variant="glow" onClick={printInvoice}>
-          <Printer className="w-4 h-4 mr-2" />
-          Print
+        <Button variant="glow" onClick={printInvoice} className="w-full sm:w-auto px-4">
+          <Printer className="w-4 h-4 mr-2 flex-shrink-0" />
+          <span>Print</span>
         </Button>
       </div>
     </div>
