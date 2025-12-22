@@ -11,9 +11,9 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Twitter, href: "https://x.com/ArenexTechworks", label: "Twitter" },
   { icon: Instagram, href: "https://instagram.com/arenex_techworks", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/arenex-techworks-12a88539b", label: "LinkedIn" },
 ];
 
 export const Footer = () => {
