@@ -27,10 +27,10 @@ const Services = () => {
       <section className="py-16 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
         <div className="container mx-auto px-6 text-center relative">
-          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl mb-6">
+          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl mb-6 animate-fade-in-up">
             Our <span className="text-gradient">Services</span>
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up delay-100">
             Professional digital solutions tailored to elevate your business
           </p>
         </div>
@@ -41,8 +41,8 @@ const Services = () => {
         <div className="container mx-auto px-6">
           <div className="space-y-24">
             {/* Web Development */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="glass-card p-10 lg:p-14">
+            <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in-up delay-200">
+              <div className="glass-card p-10 lg:p-14 hover:border-primary/30 transition-all duration-500">
                 <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-8">
                   <Code2 className="w-10 h-10 text-primary" />
                 </div>
@@ -68,28 +68,28 @@ const Services = () => {
                 </Button>
               </div>
               <div className="hidden lg:flex items-center justify-center">
-                <div className="relative">
+                <div className="relative animate-float">
                   <div className="w-80 h-80 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                     <Code2 className="w-32 h-32 text-primary/50" />
                   </div>
-                  <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-primary/30 blur-xl" />
-                  <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-2xl bg-secondary/20 blur-xl" />
+                  <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-primary/30 blur-xl animate-pulse-glow" />
+                  <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-2xl bg-secondary/20 blur-xl animate-pulse-glow delay-300" />
                 </div>
               </div>
             </div>
 
             {/* Graphic Design */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in-up delay-300">
               <div className="hidden lg:flex items-center justify-center lg:order-first">
-                <div className="relative">
+                <div className="relative animate-float delay-200">
                   <div className="w-80 h-80 rounded-3xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center">
                     <Palette className="w-32 h-32 text-secondary/50" />
                   </div>
-                  <div className="absolute -top-4 -left-4 w-24 h-24 rounded-2xl bg-secondary/30 blur-xl" />
-                  <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl bg-primary/20 blur-xl" />
+                  <div className="absolute -top-4 -left-4 w-24 h-24 rounded-2xl bg-secondary/30 blur-xl animate-pulse-glow" />
+                  <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl bg-primary/20 blur-xl animate-pulse-glow delay-300" />
                 </div>
               </div>
-              <div className="glass-card p-10 lg:p-14">
+              <div className="glass-card p-10 lg:p-14 hover:border-secondary/30 transition-all duration-500">
                 <div className="w-20 h-20 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8">
                   <Palette className="w-10 h-10 text-secondary" />
                 </div>
@@ -122,7 +122,7 @@ const Services = () => {
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="glass-card p-12 md:p-16 text-center max-w-4xl mx-auto">
+          <div className="glass-card p-12 md:p-16 text-center max-w-4xl mx-auto animate-scale-in delay-400">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
               Ready to Start Your Project?
             </h2>
