@@ -1,23 +1,46 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code2, Palette, Check, ArrowRight } from "lucide-react";
+import { Code2, Palette, Globe, Smartphone, ShoppingCart, Zap, Image, Film, MessageCircle, ArrowRight } from "lucide-react";
 
-const webDevFeatures = [
-  "Custom Website Development",
-  "E-commerce Solutions",
-  "Web Application Development",
-  "API Integration",
-  "Performance Optimization",
-  "SEO-Friendly Architecture",
+const webServices = [
+  {
+    icon: Globe,
+    title: "Business Websites",
+    description: "A professional home for your business online. Clean design, fast loading, and built to convert visitors into customers."
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile-First Design",
+    description: "Most people browse on their phones. Every site we build looks and works perfectly on any screen size."
+  },
+  {
+    icon: ShoppingCart,
+    title: "Online Stores",
+    description: "Want to sell products online? We set up your store with secure payments, inventory management, and everything you need."
+  },
+  {
+    icon: Zap,
+    title: "Landing Pages",
+    description: "Got a product launch or campaign? We build focused landing pages designed to get clicks and signups."
+  }
 ];
 
-const graphicDesignFeatures = [
-  "Brand Identity Design",
-  "Logo Design & Branding",
-  "UI/UX Design",
-  "Social Media Graphics",
-  "Marketing Materials",
-  "Print Design",
+const designServices = [
+  {
+    icon: Image,
+    title: "Logo & Branding",
+    description: "Your logo is often the first thing people see. We design memorable marks that capture what your business is about."
+  },
+  {
+    icon: Palette,
+    title: "Social Media Graphics",
+    description: "Stand out in the scroll. We create eye-catching posts, stories, and ads that match your brand."
+  },
+  {
+    icon: Film,
+    title: "Motion Graphics",
+    description: "Animated logos, video intros, and reels that grab attention. Perfect for social media content."
+  }
 ];
 
 const Services = () => {
@@ -28,93 +51,76 @@ const Services = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
         <div className="container mx-auto px-6 text-center relative">
           <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl mb-6 animate-fade-in-up">
-            Our <span className="text-gradient">Services</span>
+            What We Do
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up delay-100">
-            Professional digital solutions tailored to elevate your business
+            We focus on two things and do them really well: building great websites and creating beautiful designs.
           </p>
         </div>
       </section>
 
-      {/* Services Detail */}
+      {/* Web Development */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="space-y-24">
-            {/* Web Development */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in-up delay-200">
-              <div className="glass-card p-10 lg:p-14 hover:border-primary/30 transition-all duration-500">
-                <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-8">
-                  <Code2 className="w-10 h-10 text-primary" />
-                </div>
-                <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">Web Development</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                  We build high-performance, scalable websites and web applications using the latest technologies. 
-                  From simple landing pages to complex e-commerce platforms, we deliver solutions that drive results.
-                </p>
-                <ul className="space-y-4 mb-8">
-                  {webDevFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                        <Check className="w-4 h-4 text-primary" />
-                      </div>
-                      <span className="text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="glow" asChild>
-                  <Link to="/pricing">
-                    View Pricing <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="hidden lg:flex items-center justify-center">
-                <div className="relative animate-float">
-                  <div className="w-80 h-80 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Code2 className="w-32 h-32 text-primary/50" />
-                  </div>
-                  <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-primary/30 blur-xl animate-pulse-glow" />
-                  <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-2xl bg-secondary/20 blur-xl animate-pulse-glow delay-300" />
-                </div>
-              </div>
+          <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <Code2 className="w-6 h-6 text-primary" />
             </div>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl">Web Development</h2>
+          </div>
 
-            {/* Graphic Design */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in-up delay-300">
-              <div className="hidden lg:flex items-center justify-center lg:order-first">
-                <div className="relative animate-float delay-200">
-                  <div className="w-80 h-80 rounded-3xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center">
-                    <Palette className="w-32 h-32 text-secondary/50" />
-                  </div>
-                  <div className="absolute -top-4 -left-4 w-24 h-24 rounded-2xl bg-secondary/30 blur-xl animate-pulse-glow" />
-                  <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl bg-primary/20 blur-xl animate-pulse-glow delay-300" />
+          <p className="text-muted-foreground max-w-2xl mb-10 animate-fade-in-up delay-100">
+            Your website should work for you, not against you. We build sites that load fast, 
+            look professional, and actually help you get more business.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {webServices.map((service, index) => (
+              <div
+                key={index}
+                className="glass-card p-6 rounded-xl animate-fade-in-up"
+                style={{ animationDelay: `${(index + 2) * 0.1}s`, animationFillMode: "forwards", opacity: 0 }}
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <service.icon className="w-5 h-5 text-primary" />
                 </div>
+                <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
-              <div className="glass-card p-10 lg:p-14 hover:border-secondary/30 transition-all duration-500">
-                <div className="w-20 h-20 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8">
-                  <Palette className="w-10 h-10 text-secondary" />
-                </div>
-                <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">Graphic Design</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                  Create stunning visual identities that resonate with your audience. Our design team crafts 
-                  memorable brand experiences that set you apart from the competition.
-                </p>
-                <ul className="space-y-4 mb-8">
-                  {graphicDesignFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center">
-                        <Check className="w-4 h-4 text-secondary" />
-                      </div>
-                      <span className="text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="glow" asChild>
-                  <Link to="/pricing#design-pricing">
-                    View Pricing <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Graphic Design */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
+            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+              <Palette className="w-6 h-6 text-secondary" />
             </div>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl">Graphic Design</h2>
+          </div>
+
+          <p className="text-muted-foreground max-w-2xl mb-10 animate-fade-in-up delay-100">
+            Good design isn't just about looking pretty—it's about making your business memorable. 
+            We create visuals that people actually remember.
+          </p>
+
+          <div className="grid sm:grid-cols-3 gap-6">
+            {designServices.map((service, index) => (
+              <div
+                key={index}
+                className="glass-card p-6 rounded-xl animate-fade-in-up"
+                style={{ animationDelay: `${(index + 2) * 0.1}s`, animationFillMode: "forwards", opacity: 0 }}
+              >
+                <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                  <service.icon className="w-5 h-5 text-secondary" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -122,19 +128,34 @@ const Services = () => {
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="glass-card p-12 md:p-16 text-center max-w-4xl mx-auto animate-scale-in delay-400">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
-              Ready to Start Your Project?
+          <div className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto animate-fade-in-up">
+            <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
+              Got a Project in Mind?
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Let's work together to bring your vision to life. Check out our pricing plans or get in touch.
+            <p className="text-muted-foreground text-lg mb-8">
+              Let's talk about what you need. No commitments, just a friendly conversation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="glow" size="lg" asChild>
-                <Link to="/pricing">View Pricing</Link>
+              <Button
+                variant="glow"
+                size="lg"
+                asChild
+              >
+                <a
+                  href="https://wa.me/966557677940"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-600 hover:bg-green-700 text-white border-0"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Start a Conversation
+                </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link to="/tools">Try Free Tools</Link>
+                <Link to="/pricing">
+                  See Our Pricing
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
             </div>
           </div>
