@@ -266,7 +266,7 @@ export const InvoiceGenerator = () => {
           <Download className="w-4 h-4 mr-2 flex-shrink-0" />
           <span>Download PDF</span>
         </Button>
-        <Button variant="glow" onClick={printInvoice} className="w-full sm:w-auto px-4">
+        <Button variant="default" onClick={printInvoice} className="w-full sm:w-auto px-4">
           <Printer className="w-4 h-4 mr-2 flex-shrink-0" />
           <span>Print</span>
         </Button>

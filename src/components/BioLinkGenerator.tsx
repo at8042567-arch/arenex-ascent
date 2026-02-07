@@ -138,7 +138,7 @@ export const BioLinkGenerator = () => {
           ))}
         </div>
 
-        <Button onClick={copyCode} variant="glow" className="w-full">
+        <Button onClick={copyCode} variant="default" className="w-full">
           {copied ? <Check className="w-4 h-4 mr-2" /> : <Copy className="w-4 h-4 mr-2" />}
           {copied ? "Copied!" : "Copy Code"}
         </Button>
