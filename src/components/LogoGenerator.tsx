@@ -89,7 +89,7 @@ export const LogoGenerator = () => {
       {/* Generate Button */}
       <div className="flex justify-center">
         <Button
-          variant="glow"
+          variant="default"
           size="lg"
           onClick={generateLogo}
           disabled={loading || !companyName || !industry}
@@ -110,7 +110,7 @@ export const LogoGenerator = () => {
       </div>
 
       {/* Result Section */}
-      <div className="glass-card p-8 rounded-2xl min-h-[400px] flex items-center justify-center">
+      <div className="clean-card p-8 rounded-2xl min-h-[400px] flex items-center justify-center">
         {loading ? (
           <div className="text-center">
             <Loader2 className="w-16 h-16 text-primary animate-spin mx-auto mb-4" />
@@ -127,7 +127,7 @@ export const LogoGenerator = () => {
               />
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4">
-              <Button variant="glow" onClick={downloadLogo} className="w-full sm:w-auto px-4">
+              <Button variant="default" onClick={downloadLogo} className="w-full sm:w-auto px-4">
                 <Download className="w-4 h-4 mr-2 flex-shrink-0" />
                 <span>Download Logo</span>
               </Button>

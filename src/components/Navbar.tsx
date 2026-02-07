@@ -19,26 +19,30 @@ export const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const isActive = (href: string) => location.pathname === href;
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "glass-card py-3" : "py-6"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/90 backdrop-blur-lg shadow-sm border-b border-border/50 py-3"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <img 
-            src={arenexLogo} 
-            alt="Arenex TechWorks" 
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={arenexLogo}
+            alt="Arenex TechWorks"
             className="h-10 w-auto object-contain"
           />
         </Link>
@@ -49,21 +53,30 @@ export const Navbar = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`transition-colors font-medium ${
+              className={`relative text-sm font-medium transition-colors py-1 ${
                 isActive(link.href)
                   ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
+                  : "text-foreground/70 hover:text-foreground"
               }`}
             >
               {link.label}
+              {isActive(link.href) && (
+                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-primary rounded-full" />
+              )}
             </Link>
           ))}
-          <Button variant="glow" size="sm" asChild>
-            <Link to="/pricing">Start Project</Link>
+          <Button size="sm" className="rounded-full px-6" asChild>
+            <a
+              href="https://wa.me/966557677940"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start a Project
+            </a>
           </Button>
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Toggle */}
         <button
           className="md:hidden text-foreground p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -74,26 +87,30 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-card mt-2 mx-4 p-6 rounded-2xl animate-fade-in-up">
-          <div className="flex flex-col gap-4">
+        <div className="md:hidden bg-background border-t border-border mt-2 px-6 py-6 shadow-lg">
+          <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`py-2 font-medium ${
+                className={`py-2 text-sm font-medium ${
                   isActive(link.href)
                     ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
+                    : "text-foreground/70 hover:text-foreground"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button variant="glow" className="mt-2" asChild>
-              <Link to="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
-                Start Project
-              </Link>
+            <Button className="mt-3 rounded-full" asChild>
+              <a
+                href="https://wa.me/966557677940"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start a Project
+              </a>
             </Button>
           </div>
         </div>

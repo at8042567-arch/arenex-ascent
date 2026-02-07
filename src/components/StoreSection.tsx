@@ -55,7 +55,7 @@ export const StoreSection = () => {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {products.map((product) => (
-            <div key={product.id} className="glass-card overflow-hidden group">
+            <div key={product.id} className="clean-card overflow-hidden group">
               {/* Product Image */}
               <div className="aspect-square bg-muted/30 relative overflow-hidden">
                 <img 
@@ -72,7 +72,7 @@ export const StoreSection = () => {
                 </h3>
                 <p className="text-primary font-bold text-lg mb-3">{product.price}</p>
                 <Button 
-                  variant="glow" 
+                  variant="default" 
                   onClick={handleBuyNow}
                   className="w-full"
                 >

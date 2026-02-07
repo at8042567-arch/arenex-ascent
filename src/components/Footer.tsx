@@ -18,32 +18,32 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="py-16 border-t border-border/50">
+    <footer className="py-16 border-t border-border bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src={arenexLogo} 
-                alt="Arenex TechWorks" 
+              <img
+                src={arenexLogo}
+                alt="Arenex TechWorks"
                 className="h-12 w-auto object-contain"
               />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Building the future of digital business through innovative technology and creative solutions.
+              A small team building great websites and designs for businesses who want to stand out online.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-display font-bold text-lg mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group"
+                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group text-sm"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -55,14 +55,16 @@ export const Footer = () => {
 
           {/* Social */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Connect</h4>
+            <h4 className="font-display font-bold text-lg mb-4 text-foreground">Connect</h4>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 glass-card rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+                  className="w-10 h-10 rounded-xl border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -71,8 +73,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © 2026 Arenex TechWorks. Made in Pakistan 🇵🇰
           </p>

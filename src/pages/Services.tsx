@@ -1,125 +1,126 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Code2, Palette, Globe, Smartphone, ShoppingCart, Zap, Image, Film, MessageCircle, ArrowRight } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const webServices = [
   {
     icon: Globe,
     title: "Business Websites",
-    description: "A professional home for your business online. Clean design, fast loading, and built to convert visitors into customers."
+    description: "A professional home for your business online. Clean design, fast loading, and built to convert visitors into customers.",
   },
   {
     icon: Smartphone,
     title: "Mobile-First Design",
-    description: "Most people browse on their phones. Every site we build looks and works perfectly on any screen size."
+    description: "Most people browse on their phones. Every site we build looks and works perfectly on any screen size.",
   },
   {
     icon: ShoppingCart,
     title: "Online Stores",
-    description: "Want to sell products online? We set up your store with secure payments, inventory management, and everything you need."
+    description: "Want to sell products online? We set up your store with secure payments, inventory management, and everything you need.",
   },
   {
     icon: Zap,
     title: "Landing Pages",
-    description: "Got a product launch or campaign? We build focused landing pages designed to get clicks and signups."
-  }
+    description: "Got a product launch or campaign? We build focused landing pages designed to get clicks and signups.",
+  },
 ];
 
 const designServices = [
   {
     icon: Image,
     title: "Logo & Branding",
-    description: "Your logo is often the first thing people see. We design memorable marks that capture what your business is about."
+    description: "Your logo is often the first thing people see. We design memorable marks that capture what your business is about.",
   },
   {
     icon: Palette,
     title: "Social Media Graphics",
-    description: "Stand out in the scroll. We create eye-catching posts, stories, and ads that match your brand."
+    description: "Stand out in the scroll. We create eye-catching posts, stories, and ads that match your brand.",
   },
   {
     icon: Film,
     title: "Motion Graphics",
-    description: "Animated logos, video intros, and reels that grab attention. Perfect for social media content."
-  }
+    description: "Animated logos, video intros, and reels that grab attention. Perfect for social media content.",
+  },
 ];
 
 const Services = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
-      <section className="py-16 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
-        <div className="container mx-auto px-6 text-center relative">
-          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl mb-6 animate-fade-in-up">
-            What We Do
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up delay-100">
-            We focus on two things and do them really well: building great websites and creating beautiful designs.
-          </p>
+      <section className="py-20">
+        <div className="container mx-auto px-6 text-center">
+          <ScrollReveal>
+            <span className="text-primary font-semibold text-sm tracking-wide uppercase">Our Services</span>
+            <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl mt-3 mb-6">
+              What We Do
+            </h1>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              We focus on two things and do them really well: building great websites and creating beautiful designs.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Web Development */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <Code2 className="w-6 h-6 text-primary" />
+          <ScrollReveal>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Code2 className="w-6 h-6 text-primary" />
+              </div>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl">Web Development</h2>
             </div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl">Web Development</h2>
-          </div>
-
-          <p className="text-muted-foreground max-w-2xl mb-10 animate-fade-in-up delay-100">
-            Your website should work for you, not against you. We build sites that load fast, 
-            look professional, and actually help you get more business.
-          </p>
+            <p className="text-muted-foreground max-w-2xl mb-10">
+              Your website should work for you, not against you. We build sites that load fast,
+              look professional, and actually help you get more business.
+            </p>
+          </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {webServices.map((service, index) => (
-              <div
-                key={index}
-                className="glass-card p-6 rounded-xl animate-fade-in-up"
-                style={{ animationDelay: `${(index + 2) * 0.1}s`, animationFillMode: "forwards", opacity: 0 }}
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <service.icon className="w-5 h-5 text-primary" />
+              <ScrollReveal key={index} delay={index * 0.08}>
+                <div className="clean-card p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <service.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Graphic Design */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-6">
-          <div className="flex items-center gap-3 mb-8 animate-fade-in-up">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-              <Palette className="w-6 h-6 text-secondary" />
+          <ScrollReveal>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Palette className="w-6 h-6 text-primary" />
+              </div>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl">Graphic Design</h2>
             </div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl">Graphic Design</h2>
-          </div>
-
-          <p className="text-muted-foreground max-w-2xl mb-10 animate-fade-in-up delay-100">
-            Good design isn't just about looking pretty—it's about making your business memorable. 
-            We create visuals that people actually remember.
-          </p>
+            <p className="text-muted-foreground max-w-2xl mb-10">
+              Good design isn't just about looking pretty—it's about making your business memorable.
+              We create visuals that people actually remember.
+            </p>
+          </ScrollReveal>
 
           <div className="grid sm:grid-cols-3 gap-6">
             {designServices.map((service, index) => (
-              <div
-                key={index}
-                className="glass-card p-6 rounded-xl animate-fade-in-up"
-                style={{ animationDelay: `${(index + 2) * 0.1}s`, animationFillMode: "forwards", opacity: 0 }}
-              >
-                <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-                  <service.icon className="w-5 h-5 text-secondary" />
+              <ScrollReveal key={index} delay={index * 0.08}>
+                <div className="clean-card p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <service.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -128,37 +129,34 @@ const Services = () => {
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto animate-fade-in-up">
-            <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
-              Got a Project in Mind?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Let's talk about what you need. No commitments, just a friendly conversation.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                variant="glow"
-                size="lg"
-                asChild
-              >
-                <a
-                  href="https://wa.me/966557677940"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-green-600 hover:bg-green-700 text-white border-0"
+          <ScrollReveal>
+            <div className="clean-card p-10 md:p-16 text-center max-w-3xl mx-auto">
+              <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
+                Got a Project in Mind?
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8">
+                Let's talk about what you need. No commitments, just a friendly conversation.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 bg-green-600 hover:bg-green-700 text-white"
+                  asChild
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Start a Conversation
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/pricing">
-                  See Our Pricing
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+                  <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Start a Conversation
+                  </a>
+                </Button>
+                <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
+                  <Link to="/pricing">
+                    See Our Pricing
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>
