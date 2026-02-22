@@ -4,10 +4,13 @@ import { ScrollReveal } from "./ScrollReveal";
 
 export const ContactSection = () => {
   return (
-    <section className="py-24 bg-muted/50">
-      <div className="container mx-auto px-6">
+    <section className="py-24 relative">
+      {/* Background glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <div className="clean-card p-10 md:p-16 max-w-3xl mx-auto text-center">
+          <div className="glass-card p-10 md:p-16 max-w-3xl mx-auto text-center glow-green-sm">
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Contact</span>
             <h2 className="font-display font-bold text-3xl sm:text-4xl mt-3 mb-4">
               Ready to Start?
@@ -30,7 +33,7 @@ export const ContactSection = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"
-                className="rounded-full px-8 bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-600/20"
+                className="px-8"
                 asChild
               >
                 <a
@@ -42,7 +45,7 @@ export const ContactSection = () => {
                   Message Us on WhatsApp
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
+              <Button variant="outline" size="lg" className="px-8" asChild>
                 <a href="mailto:Arenextechworks@gmail.com">
                   <Mail className="w-5 h-5 mr-2" />
                   Send an Email

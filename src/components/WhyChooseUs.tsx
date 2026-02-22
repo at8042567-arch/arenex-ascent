@@ -26,8 +26,11 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-24 bg-muted/50">
-      <div className="container mx-auto px-6">
+    <section className="py-24 relative">
+      {/* Subtle glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Why Us</span>
@@ -43,8 +46,8 @@ export const WhyChooseUs = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {reasons.map((reason, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="clean-card p-6 text-center h-full">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <div className="glass-card-hover p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
                   <reason.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-lg mb-2">{reason.title}</h3>

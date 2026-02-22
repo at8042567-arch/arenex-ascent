@@ -24,8 +24,11 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="py-24 bg-muted/50">
-      <div className="container mx-auto px-6">
+    <section className="py-24 relative">
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Testimonials</span>
@@ -41,8 +44,8 @@ export const TestimonialsSection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <div className="clean-card p-8 h-full flex flex-col">
-                <Quote className="w-8 h-8 text-primary/20 mb-4" />
+              <div className="glass-card-hover p-8 h-full flex flex-col">
+                <Quote className="w-8 h-8 text-primary/30 mb-4" />
 
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -54,7 +57,7 @@ export const TestimonialsSection = () => {
                   "{testimonial.text}"
                 </p>
 
-                <div className="border-t border-border pt-4">
+                <div className="border-t border-[rgba(255,255,255,0.06)] pt-4">
                   <p className="font-semibold text-foreground">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>

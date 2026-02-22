@@ -18,7 +18,7 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="py-16 border-t border-border bg-muted/30">
+    <footer className="py-16 border-t border-[rgba(255,255,255,0.06)]">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
@@ -64,7 +64,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-xl border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+                  className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:shadow-[0_0_10px_rgba(34,197,94,0.2)] transition-all"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -73,7 +73,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-[rgba(255,255,255,0.06)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © 2026 Arenex TechWorks. Made in Pakistan 🇵🇰
           </p>

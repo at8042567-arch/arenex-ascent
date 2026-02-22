@@ -15,8 +15,9 @@ const About = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">About Us</span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl mt-3 mb-6">
@@ -33,9 +34,9 @@ const About = () => {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="clean-card p-8 md:p-12 max-w-4xl mx-auto">
+            <div className="glass-card p-8 md:p-12 max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div className="w-36 h-36 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex-shrink-0 border-4 border-primary/10">
+                <div className="w-36 h-36 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex-shrink-0 border-2 border-primary/20">
                   <img
                     src={founderImage}
                     alt="Abdulrehman Tariq"
@@ -72,11 +73,11 @@ const About = () => {
       </section>
 
       {/* Team Skills */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-background border border-border px-4 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
                 <Users className="w-4 h-4 text-primary" />
                 <span className="text-sm text-muted-foreground">Our Expertise</span>
               </div>
@@ -92,8 +93,8 @@ const About = () => {
           <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
             {teamSkills.map((skill, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
-                <div className="clean-card-hover p-6 flex flex-col items-center gap-3 w-32">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <div className="glass-card-hover p-6 flex flex-col items-center gap-3 w-32">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                     <skill.icon className="w-7 h-7 text-primary" />
                   </div>
                   <span className="text-xs text-muted-foreground text-center">{skill.label}</span>
@@ -108,7 +109,7 @@ const About = () => {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="clean-card p-8 md:p-12 text-center max-w-3xl mx-auto">
+            <div className="glass-card p-8 md:p-12 text-center max-w-3xl mx-auto">
               <h2 className="font-display font-bold text-2xl md:text-3xl mb-6">
                 What We Believe In
               </h2>
@@ -138,7 +139,7 @@ const About = () => {
       </section>
 
       {/* Contact */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16">
         <div className="container mx-auto px-6 text-center">
           <ScrollReveal>
             <h2 className="font-display font-bold text-2xl mb-8">Want to Say Hello?</h2>
@@ -150,11 +151,7 @@ const About = () => {
                 <Mail className="w-5 h-5" />
                 <span>Arenextechworks@gmail.com</span>
               </a>
-              <Button
-                size="lg"
-                className="rounded-full px-8 bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-600/20"
-                asChild
-              >
+              <Button size="lg" className="px-8" asChild>
                 <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Chat on WhatsApp
