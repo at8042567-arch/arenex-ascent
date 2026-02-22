@@ -25,7 +25,7 @@ const services = [
 
 export const ServicesPreview = () => {
   return (
-    <section className="py-24">
+    <section className="py-24 relative">
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -44,9 +44,9 @@ export const ServicesPreview = () => {
             <ScrollReveal key={index} delay={index * 0.1}>
               <Link
                 to={service.link}
-                className="clean-card-hover p-8 block group h-full"
+                className="glass-card-hover p-8 block group h-full"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all duration-300">
                   <service.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-xl mb-3">{service.title}</h3>

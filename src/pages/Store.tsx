@@ -37,8 +37,9 @@ const Store = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Store</span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl mt-3 mb-6">
@@ -56,7 +57,7 @@ const Store = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-10 justify-center">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <ShoppingBag className="w-5 h-5 text-primary" />
               </div>
               <h2 className="font-display font-bold text-2xl">Available Products</h2>
@@ -66,7 +67,7 @@ const Store = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {products.map((product, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
-                <div className="clean-card-hover overflow-hidden group h-full">
+                <div className="glass-card-hover overflow-hidden group h-full">
                   <div className="aspect-square overflow-hidden bg-muted">
                     <img
                       src={product.image}
@@ -79,7 +80,7 @@ const Store = () => {
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{product.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="font-display font-extrabold text-xl text-primary">{product.price}</span>
-                      <Button size="sm" className="rounded-full" asChild>
+                      <Button size="sm" asChild>
                         <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
                           Buy Now
                         </a>
@@ -94,18 +95,15 @@ const Store = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="clean-card p-10 text-center max-w-2xl mx-auto">
+            <div className="glass-card p-10 text-center max-w-2xl mx-auto glow-green-sm">
               <h2 className="font-display font-bold text-2xl mb-4">Looking for Something Specific?</h2>
               <p className="text-muted-foreground mb-6">
                 Don't see what you need? Let us know—we might have it or can create it for you.
               </p>
-              <Button
-                className="rounded-full px-8 bg-green-600 hover:bg-green-700 text-white"
-                asChild
-              >
+              <Button className="px-8" asChild>
                 <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Ask Us

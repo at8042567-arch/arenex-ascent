@@ -32,9 +32,9 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-lg shadow-sm border-b border-border/50 py-3"
+          ? "bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)] py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -56,16 +56,16 @@ export const Navbar = () => {
               className={`relative text-sm font-medium transition-colors py-1 ${
                 isActive(link.href)
                   ? "text-primary"
-                  : "text-foreground/70 hover:text-foreground"
+                  : "text-[rgba(255,255,255,0.6)] hover:text-foreground"
               }`}
             >
               {link.label}
               {isActive(link.href) && (
-                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-primary rounded-full shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
               )}
             </Link>
           ))}
-          <Button size="sm" className="rounded-full px-6" asChild>
+          <Button size="sm" className="px-6" asChild>
             <a
               href="https://wa.me/966557677940"
               target="_blank"
@@ -87,7 +87,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border mt-2 px-6 py-6 shadow-lg">
+        <div className="md:hidden bg-[rgba(5,5,5,0.95)] backdrop-blur-xl border-t border-[rgba(255,255,255,0.06)] mt-2 px-6 py-6">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
@@ -97,13 +97,13 @@ export const Navbar = () => {
                 className={`py-2 text-sm font-medium ${
                   isActive(link.href)
                     ? "text-primary"
-                    : "text-foreground/70 hover:text-foreground"
+                    : "text-[rgba(255,255,255,0.6)] hover:text-foreground"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Button className="mt-3 rounded-full" asChild>
+            <Button className="mt-3" asChild>
               <a
                 href="https://wa.me/966557677940"
                 target="_blank"

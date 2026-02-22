@@ -48,8 +48,9 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Our Services</span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl mt-3 mb-6">
@@ -67,7 +68,7 @@ const Services = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <Code2 className="w-6 h-6 text-primary" />
               </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl">Web Development</h2>
@@ -81,8 +82,8 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {webServices.map((service, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
-                <div className="clean-card p-6 h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="glass-card-hover p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{service.title}</h3>
@@ -95,11 +96,11 @@ const Services = () => {
       </section>
 
       {/* Graphic Design */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <Palette className="w-6 h-6 text-primary" />
               </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl">Graphic Design</h2>
@@ -113,8 +114,8 @@ const Services = () => {
           <div className="grid sm:grid-cols-3 gap-6">
             {designServices.map((service, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
-                <div className="clean-card p-6 h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="glass-card-hover p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{service.title}</h3>
@@ -130,7 +131,7 @@ const Services = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="clean-card p-10 md:p-16 text-center max-w-3xl mx-auto">
+            <div className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto glow-green-sm">
               <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
                 Got a Project in Mind?
               </h2>
@@ -138,17 +139,13 @@ const Services = () => {
                 Let's talk about what you need. No commitments, just a friendly conversation.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  size="lg"
-                  className="rounded-full px-8 bg-green-600 hover:bg-green-700 text-white"
-                  asChild
-                >
+                <Button size="lg" className="px-8" asChild>
                   <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Start a Conversation
                   </a>
                 </Button>
-                <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
+                <Button variant="outline" size="lg" className="px-8" asChild>
                   <Link to="/pricing">
                     See Our Pricing
                     <ArrowRight className="w-4 h-4 ml-2" />

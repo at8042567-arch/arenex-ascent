@@ -55,9 +55,9 @@ const designPlans = [
 
 const PricingCard = ({ plan, index }: { plan: { name: string; price: string; period: string; description: string; features: string[]; popular?: boolean }; index: number }) => (
   <ScrollReveal delay={index * 0.1}>
-    <div className={`clean-card p-8 h-full relative ${plan.popular ? "border-primary/50 shadow-lg shadow-primary/5" : ""}`}>
+    <div className={`glass-card-hover p-8 h-full relative ${plan.popular ? "border-primary/30 shadow-[0_0_30px_rgba(34,197,94,0.1)]" : ""}`}>
       {plan.popular && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-4 py-1 rounded-full">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-4 py-1 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]">
           Popular
         </span>
       )}
@@ -73,7 +73,7 @@ const PricingCard = ({ plan, index }: { plan: { name: string; price: string; per
       <ul className="space-y-3 mb-8">
         {plan.features.map((feature, i) => (
           <li key={i} className="flex items-start gap-3 text-sm">
-            <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="w-5 h-5 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
               <Check className="w-3 h-3 text-primary" />
             </div>
             <span className="text-foreground">{feature}</span>
@@ -81,7 +81,7 @@ const PricingCard = ({ plan, index }: { plan: { name: string; price: string; per
         ))}
       </ul>
 
-      <Button variant={plan.popular ? "default" : "outline"} className="w-full rounded-full" asChild>
+      <Button variant={plan.popular ? "default" : "outline"} className="w-full" asChild>
         <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
           Get Started
         </a>
@@ -94,8 +94,9 @@ const Pricing = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Pricing</span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl mt-3 mb-6">
@@ -113,7 +114,7 @@ const Pricing = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-10 justify-center">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <Code2 className="w-5 h-5 text-primary" />
               </div>
               <h2 className="font-display font-bold text-2xl">Web Development</h2>
@@ -128,11 +129,11 @@ const Pricing = () => {
       </section>
 
       {/* Graphic Design */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-10 justify-center">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <Palette className="w-5 h-5 text-primary" />
               </div>
               <h2 className="font-display font-bold text-2xl">Graphic Design</h2>
@@ -150,7 +151,7 @@ const Pricing = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="clean-card p-10 md:p-14 text-center max-w-3xl mx-auto">
+            <div className="glass-card p-10 md:p-14 text-center max-w-3xl mx-auto glow-green-sm">
               <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
                 Need Something Custom?
               </h2>
@@ -158,17 +159,13 @@ const Pricing = () => {
                 These packages don't fit? No problem. Tell us what you need and we'll put together a quote.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  size="lg"
-                  className="rounded-full px-8 bg-green-600 hover:bg-green-700 text-white"
-                  asChild
-                >
+                <Button size="lg" className="px-8" asChild>
                   <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Let's Talk
                   </a>
                 </Button>
-                <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
+                <Button variant="outline" size="lg" className="px-8" asChild>
                   <Link to="/tools">Check Out Free Tools</Link>
                 </Button>
               </div>
