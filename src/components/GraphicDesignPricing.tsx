@@ -52,7 +52,7 @@ export const GraphicDesignPricing = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-secondary" />
+            <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm text-muted-foreground">Graphic Design</span>
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4">
@@ -67,14 +67,13 @@ export const GraphicDesignPricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className="glass-card p-8 rounded-2xl relative transition-all duration-500 hover:border-primary/30"
+              className={`glass-card-hover p-8 rounded-2xl relative ${plan.highlighted ? "border-primary/30 shadow-[0_0_30px_rgba(124,58,237,0.12)]" : ""}`}
             >
-
               <div className="text-center mb-8">
                 <h3 className="font-display font-bold text-xl mb-2">{plan.name}</h3>
                 <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="font-display font-bold text-4xl text-primary">
+                  <span className="font-display font-bold text-4xl text-gradient">
                     {plan.price}
                   </span>
                   <span className="text-muted-foreground text-sm">{plan.period}</span>
@@ -84,7 +83,7 @@ export const GraphicDesignPricing = () => {
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-primary" />
                     </div>
                     <span className="text-foreground text-sm">{feature}</span>
@@ -93,7 +92,7 @@ export const GraphicDesignPricing = () => {
               </ul>
 
               <Button
-                variant="outline"
+                variant={plan.highlighted ? "default" : "outline"}
                 className="w-full"
                 asChild
               >
@@ -109,17 +108,6 @@ export const GraphicDesignPricing = () => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
-          }
-          50% {
-            box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.2);
-          }
-        }
-      `}</style>
     </section>
   );
 };

@@ -7,9 +7,10 @@ import arenexLogo from "@/assets/arenex-logo.png";
 export const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center pt-20 pb-10 overflow-hidden relative">
-      {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background orbs */}
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -68,8 +69,13 @@ export const HeroSection = () => {
           <ScrollReveal direction="right" delay={0.2}>
             <div className="relative flex items-center justify-center">
               {/* Background glow blob */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent rounded-[3rem] blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/10 rounded-[3rem] blur-3xl" />
               
+              {/* Floating orbs */}
+              <div className="absolute -top-8 right-12 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary opacity-60 animate-float blur-sm" />
+              <div className="absolute bottom-12 -left-6 w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary opacity-50 animate-float" style={{ animationDelay: "2s" }} />
+              <div className="absolute top-1/3 -right-4 w-8 h-8 rounded-full bg-secondary/40 animate-float" style={{ animationDelay: "3s" }} />
+
               {/* Floating logo */}
               <div className="relative w-full max-w-md mx-auto">
                 <div className="aspect-square rounded-[3rem] glass-card flex items-center justify-center overflow-hidden">
@@ -81,13 +87,13 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Floating badges */}
-                <div className="absolute -top-4 -right-4 glass-card px-4 py-3 animate-float glow-green-sm">
+                <div className="absolute -top-4 -right-4 glass-card px-4 py-3 animate-float glow-purple-sm">
                   <p className="text-xs font-semibold text-foreground">Web Design</p>
                 </div>
                 <div className="absolute -bottom-4 -left-4 glass-card px-4 py-3 animate-float" style={{ animationDelay: "1s" }}>
                   <p className="text-xs font-semibold text-foreground">Graphic Design</p>
                 </div>
-                <div className="absolute top-1/2 -right-8 bg-primary text-primary-foreground rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] px-4 py-3 animate-float" style={{ animationDelay: "2s" }}>
+                <div className="absolute top-1/2 -right-8 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-full shadow-[0_0_25px_rgba(124,58,237,0.4)] px-4 py-3 animate-float" style={{ animationDelay: "2s" }}>
                   <p className="text-xs font-semibold">SEO</p>
                 </div>
               </div>
@@ -100,15 +106,15 @@ export const HeroSection = () => {
           <div className="grid grid-cols-3 gap-6 mt-20 pt-10 border-t border-[rgba(255,255,255,0.06)]">
             <Link to="/services" className="group">
               <h3 className="font-display font-bold text-lg group-hover:text-primary transition-colors">Web Design</h3>
-              <div className="w-8 h-0.5 bg-primary/30 mt-2 group-hover:w-16 group-hover:shadow-[0_0_8px_rgba(34,197,94,0.4)] transition-all duration-300" />
+              <div className="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mt-2 group-hover:w-16 transition-all duration-300" />
             </Link>
             <Link to="/services" className="group">
               <h3 className="font-display font-bold text-lg group-hover:text-primary transition-colors">Web Development</h3>
-              <div className="w-8 h-0.5 bg-primary/30 mt-2 group-hover:w-16 group-hover:shadow-[0_0_8px_rgba(34,197,94,0.4)] transition-all duration-300" />
+              <div className="w-8 h-0.5 bg-gradient-to-r from-secondary to-accent mt-2 group-hover:w-16 transition-all duration-300" />
             </Link>
             <Link to="/services" className="group">
               <h3 className="font-display font-bold text-lg group-hover:text-primary transition-colors">Graphic Design</h3>
-              <div className="w-8 h-0.5 bg-primary/30 mt-2 group-hover:w-16 group-hover:shadow-[0_0_8px_rgba(34,197,94,0.4)] transition-all duration-300" />
+              <div className="w-8 h-0.5 bg-gradient-to-r from-accent to-primary mt-2 group-hover:w-16 transition-all duration-300" />
             </Link>
           </div>
         </ScrollReveal>

@@ -38,7 +38,7 @@ const Store = () => {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="py-20 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-accent/10 rounded-full blur-[180px] pointer-events-none" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Store</span>
@@ -57,8 +57,8 @@ const Store = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-10 justify-center">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <ShoppingBag className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/15 to-primary/15 flex items-center justify-center">
+                <ShoppingBag className="w-5 h-5 text-accent" />
               </div>
               <h2 className="font-display font-bold text-2xl">Available Products</h2>
             </div>
@@ -79,7 +79,7 @@ const Store = () => {
                     <h3 className="font-bold text-foreground mb-2 line-clamp-2">{product.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{product.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="font-display font-extrabold text-xl text-primary">{product.price}</span>
+                      <span className="font-display font-extrabold text-xl text-gradient">{product.price}</span>
                       <Button size="sm" asChild>
                         <a href="https://wa.me/966557677940" target="_blank" rel="noopener noreferrer">
                           Buy Now
@@ -98,7 +98,7 @@ const Store = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="glass-card p-10 text-center max-w-2xl mx-auto glow-green-sm">
+            <div className="glass-card p-10 text-center max-w-2xl mx-auto glow-purple-sm">
               <h2 className="font-display font-bold text-2xl mb-4">Looking for Something Specific?</h2>
               <p className="text-muted-foreground mb-6">
                 Don't see what you need? Let us know—we might have it or can create it for you.

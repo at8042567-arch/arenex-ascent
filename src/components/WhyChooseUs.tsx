@@ -28,7 +28,7 @@ export const WhyChooseUs = () => {
   return (
     <section className="py-24 relative">
       {/* Subtle glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
@@ -47,7 +47,7 @@ export const WhyChooseUs = () => {
           {reasons.map((reason, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
               <div className="glass-card-hover p-6 text-center h-full">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mx-auto mb-4">
                   <reason.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-lg mb-2">{reason.title}</h3>
