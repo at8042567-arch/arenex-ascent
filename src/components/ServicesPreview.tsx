@@ -8,18 +8,21 @@ const services = [
     title: "Web Development",
     description: "Your website should load fast, look great on phones, and actually help you get customers. That's what we build.",
     link: "/services",
+    gradient: "from-primary to-secondary",
   },
   {
     icon: Palette,
     title: "Graphic Design",
     description: "Logos, brand kits, social media graphics—the visual stuff that makes people remember you. Professional quality, fair prices.",
     link: "/services",
+    gradient: "from-secondary to-accent",
   },
   {
     icon: Package,
     title: "Digital Products",
     description: "Templates, asset packs, and ebooks to level up your game. Ready-made resources that save you time.",
     link: "/store",
+    gradient: "from-accent to-primary",
   },
 ];
 
@@ -46,8 +49,8 @@ export const ServicesPreview = () => {
                 to={service.link}
                 className="glass-card-hover p-8 block group h-full"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary" />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-10 flex items-center justify-center mb-5 group-hover:shadow-[0_0_20px_rgba(124,58,237,0.25)] transition-all duration-300`}>
+                  <service.icon className="w-7 h-7 text-foreground" />
                 </div>
                 <h3 className="font-display font-bold text-xl mb-3">{service.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">

@@ -50,11 +50,11 @@ export const ProcessSection = () => {
               <div className="relative text-center">
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-10 left-[60%] w-full h-[1px] bg-gradient-to-r from-primary/30 to-transparent" />
+                  <div className="hidden md:block absolute top-10 left-[60%] w-full h-[1px] bg-gradient-to-r from-primary/30 via-secondary/20 to-transparent" />
                 )}
 
                 <div className="relative z-10">
-                  <div className="w-20 h-20 rounded-2xl glass-card border-primary/20 flex items-center justify-center mx-auto mb-4 group hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] transition-shadow duration-300">
+                  <div className="w-20 h-20 rounded-2xl glass-card flex items-center justify-center mx-auto mb-4 group hover:shadow-[0_0_25px_rgba(124,58,237,0.2)] transition-shadow duration-300">
                     <step.icon className="w-8 h-8 text-primary" />
                   </div>
                   <span className="text-primary/50 text-sm font-mono mb-2 block">{step.number}</span>

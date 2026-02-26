@@ -16,7 +16,7 @@ const About = () => {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="py-20 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 rounded-full blur-[180px] pointer-events-none" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">About Us</span>
@@ -36,7 +36,7 @@ const About = () => {
           <ScrollReveal>
             <div className="glass-card p-8 md:p-12 max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div className="w-36 h-36 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex-shrink-0 border-2 border-primary/20">
+                <div className="w-36 h-36 rounded-full overflow-hidden bg-gradient-to-br from-primary/30 to-accent/20 flex-shrink-0 border-2 border-primary/20">
                   <img
                     src={founderImage}
                     alt="Abdulrehman Tariq"
@@ -94,7 +94,7 @@ const About = () => {
             {teamSkills.map((skill, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
                 <div className="glass-card-hover p-6 flex flex-col items-center gap-3 w-32">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-secondary/15 flex items-center justify-center">
                     <skill.icon className="w-7 h-7 text-primary" />
                   </div>
                   <span className="text-xs text-muted-foreground text-center">{skill.label}</span>

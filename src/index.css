@@ -4,51 +4,51 @@
 
 @layer base {
   :root {
-    /* Dark futuristic background */
-    --background: 120 15% 3%;
-    --foreground: 0 0% 100%;
+    /* Deep dark blue background */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
 
     /* Glass cards */
-    --card: 120 10% 6%;
-    --card-foreground: 0 0% 100%;
+    --card: 222 30% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 120 10% 6%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 222 30% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Neon Green Primary */
-    --primary: 142 71% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* Purple accent primary */
+    --primary: 263 70% 58%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Lighter green secondary */
-    --secondary: 142 69% 58%;
-    --secondary-foreground: 0 0% 100%;
+    /* Blue secondary */
+    --secondary: 217 91% 53%;
+    --secondary-foreground: 210 40% 98%;
 
     /* Dark muted tones */
-    --muted: 120 5% 10%;
-    --muted-foreground: 220 5% 64%;
+    --muted: 222 20% 14%;
+    --muted-foreground: 215 20% 65%;
 
-    /* Accent = primary green */
-    --accent: 142 71% 45%;
-    --accent-foreground: 0 0% 100%;
+    /* Orange warm accent */
+    --accent: 24 95% 53%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 100% / 0.08;
-    --input: 0 0% 100% / 0.08;
-    --ring: 142 71% 45%;
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 263 70% 58%;
 
     --radius: 1rem;
 
     /* Sidebar */
-    --sidebar-background: 120 10% 4%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 142 71% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 120 5% 10%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 100% / 0.08;
-    --sidebar-ring: 142 71% 45%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 263 70% 58%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 222 20% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 263 70% 58%;
   }
 }
 
@@ -59,7 +59,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background: linear-gradient(180deg, hsl(120 15% 2%) 0%, hsl(120 10% 4%) 50%, hsl(120 8% 3%) 100%);
+    background: linear-gradient(180deg, hsl(222 47% 5%) 0%, hsl(222 47% 8%) 40%, hsl(230 35% 10%) 70%, hsl(222 47% 6%) 100%);
     background-attachment: fixed;
   }
 }
@@ -67,25 +67,25 @@
 @layer components {
   /* Glass Card */
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1rem;
-    backdrop-filter: blur(12px);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(16px);
   }
 
   .glass-card-hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1rem;
-    backdrop-filter: blur(12px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(16px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-card-hover:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(34, 197, 94, 0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(34, 197, 94, 0.1), 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.12), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
   /* Legacy aliases */
@@ -99,22 +99,34 @@
   /* Gradient text */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 69% 65%));
+    background-image: linear-gradient(135deg, hsl(263 70% 58%), hsl(217 91% 60%), hsl(24 95% 53%));
   }
 
   /* Section divider */
   .section-divider {
     @apply w-16 h-1 rounded-full mx-auto;
-    background: linear-gradient(90deg, hsl(142 71% 45%), transparent);
+    background: linear-gradient(90deg, hsl(263 70% 58%), hsl(24 95% 53%));
   }
 
-  /* Green glow effect */
+  /* Glow effects */
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.25), 0 0 80px rgba(124, 58, 237, 0.08);
+  }
+
+  .glow-purple-sm {
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.2), 0 0 40px rgba(124, 58, 237, 0.05);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 25px rgba(249, 115, 22, 0.3), 0 0 60px rgba(249, 115, 22, 0.08);
+  }
+
+  /* Keep green aliases for compatibility */
   .glow-green {
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3), 0 0 60px rgba(34, 197, 94, 0.1);
+    @apply glow-purple;
   }
-
   .glow-green-sm {
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.2), 0 0 30px rgba(34, 197, 94, 0.05);
+    @apply glow-purple-sm;
   }
 }
 
@@ -135,17 +147,27 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-14px);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3), 0 0 40px rgba(34, 197, 94, 0.1);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(34, 197, 94, 0.5), 0 0 60px rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.5), 0 0 70px rgba(124, 58, 237, 0.2);
   }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .animate-fade-in-up {
@@ -158,6 +180,15 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
 }
 
 /* Stagger delays */

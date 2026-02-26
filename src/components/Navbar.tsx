@@ -34,7 +34,7 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)] py-3"
+          ? "bg-[rgba(11,15,26,0.85)] backdrop-blur-2xl border-b border-[rgba(255,255,255,0.06)] py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -55,13 +55,13 @@ export const Navbar = () => {
               to={link.href}
               className={`relative text-sm font-medium transition-colors py-1 ${
                 isActive(link.href)
-                  ? "text-primary"
-                  : "text-[rgba(255,255,255,0.6)] hover:text-foreground"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {link.label}
               {isActive(link.href) && (
-                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-primary rounded-full shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
+                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-primary via-secondary to-accent" />
               )}
             </Link>
           ))}
@@ -87,7 +87,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[rgba(5,5,5,0.95)] backdrop-blur-xl border-t border-[rgba(255,255,255,0.06)] mt-2 px-6 py-6">
+        <div className="md:hidden bg-[rgba(11,15,26,0.95)] backdrop-blur-2xl border-t border-[rgba(255,255,255,0.06)] mt-2 px-6 py-6">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
@@ -96,8 +96,8 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`py-2 text-sm font-medium ${
                   isActive(link.href)
-                    ? "text-primary"
-                    : "text-[rgba(255,255,255,0.6)] hover:text-foreground"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}

@@ -6,11 +6,11 @@ export const ContactSection = () => {
   return (
     <section className="py-24 relative">
       {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <div className="glass-card p-10 md:p-16 max-w-3xl mx-auto text-center glow-green-sm">
+          <div className="glass-card p-10 md:p-16 max-w-3xl mx-auto text-center glow-purple-sm">
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Contact</span>
             <h2 className="font-display font-bold text-3xl sm:text-4xl mt-3 mb-4">
               Ready to Start?
@@ -25,17 +25,13 @@ export const ContactSection = () => {
                 <span>Usually reply within 2 hours</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
+                <Mail className="w-4 h-4 text-accent" />
                 <span>Arenextechworks@gmail.com</span>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                size="lg"
-                className="px-8"
-                asChild
-              >
+              <Button size="lg" className="px-8" asChild>
                 <a
                   href="https://wa.me/966557677940"
                   target="_blank"

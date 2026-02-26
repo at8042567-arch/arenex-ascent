@@ -26,7 +26,7 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-24 relative">
       {/* Background glow */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
@@ -49,7 +49,7 @@ export const TestimonialsSection = () => {
 
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                   ))}
                 </div>
 

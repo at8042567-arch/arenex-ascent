@@ -28,8 +28,9 @@ const Tools = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-secondary/10 rounded-full blur-[180px] pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Free Tools</span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl mt-3 mb-6">
@@ -47,8 +48,8 @@ const Tools = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-10 justify-center">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Wrench className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary/15 to-primary/15 flex items-center justify-center">
+                <Wrench className="w-5 h-5 text-secondary" />
               </div>
               <h2 className="font-display font-bold text-2xl">Available Tools</h2>
             </div>
@@ -59,9 +60,9 @@ const Tools = () => {
               <ScrollReveal key={index} delay={index * 0.1}>
                 <Link
                   to={tool.link}
-                  className="clean-card-hover p-8 block group h-full"
+                  className="glass-card-hover p-8 block group h-full"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-secondary/15 flex items-center justify-center mb-5 group-hover:shadow-[0_0_20px_rgba(124,58,237,0.2)] transition-all">
                     <tool.icon className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="font-display font-bold text-xl mb-3">{tool.title}</h3>
@@ -74,10 +75,10 @@ const Tools = () => {
       </section>
 
       {/* More Coming */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="clean-card p-10 text-center max-w-2xl mx-auto">
+            <div className="glass-card p-10 text-center max-w-2xl mx-auto glow-purple-sm">
               <h2 className="font-display font-bold text-2xl mb-4">More Tools Coming Soon</h2>
               <p className="text-muted-foreground mb-6">
                 We're always building new things. Have an idea for a tool? Let us know.

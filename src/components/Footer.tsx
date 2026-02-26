@@ -64,7 +64,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:shadow-[0_0_10px_rgba(34,197,94,0.2)] transition-all"
+                  className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:shadow-[0_0_12px_rgba(124,58,237,0.2)] transition-all"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>

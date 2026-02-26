@@ -49,7 +49,7 @@ const Services = () => {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="py-20 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 rounded-full blur-[180px] pointer-events-none" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <ScrollReveal>
             <span className="text-primary font-semibold text-sm tracking-wide uppercase">Our Services</span>
@@ -68,7 +68,7 @@ const Services = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
                 <Code2 className="w-6 h-6 text-primary" />
               </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl">Web Development</h2>
@@ -83,7 +83,7 @@ const Services = () => {
             {webServices.map((service, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
                 <div className="glass-card-hover p-6 h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/15 flex items-center justify-center mb-4">
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{service.title}</h3>
@@ -100,8 +100,8 @@ const Services = () => {
         <div className="container mx-auto px-6">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <Palette className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                <Palette className="w-6 h-6 text-accent" />
               </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl">Graphic Design</h2>
             </div>
@@ -115,8 +115,8 @@ const Services = () => {
             {designServices.map((service, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
                 <div className="glass-card-hover p-6 h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                    <service.icon className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/15 to-primary/15 flex items-center justify-center mb-4">
+                    <service.icon className="w-5 h-5 text-accent" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
@@ -131,7 +131,7 @@ const Services = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <ScrollReveal>
-            <div className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto glow-green-sm">
+            <div className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto glow-purple-sm">
               <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
                 Got a Project in Mind?
               </h2>
